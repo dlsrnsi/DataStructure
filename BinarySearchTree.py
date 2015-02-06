@@ -61,7 +61,6 @@ class BinarySearchTree :
     
     def removeOps(self, key, targetNode):
         node = self.findOps(key, targetNode)
-        print(node.key)
         if(node.parent.key==key) :
             if(node.parent.left.key==key) :
                 node.parent.left = None
@@ -74,7 +73,7 @@ class BinarySearchTree :
         if(node.left==None and node.right==None) :
              node.parent = None
         elif(node.left!=None and node.right!=None) :
-            newNode = BSTNode(self.findOps(node.key,node.right).key, self.findOps(node.key, node.right))
+            newNode = copy.deepcopy(self.findOps(node.key,node.right))
             self.size += 1
             newNode.parent=node.parent
             if(node.parent.key<=node.key) :
@@ -99,9 +98,16 @@ class BinarySearchTree :
     def remove(self,key):
         self.removeOps(key, self.root)
         
+    def inOrderOps(self,node):
+        if(node.left!=None) :
+            self.inOrderOps(node.left)
+        print(node.key, " : ", node.value)
+        if(node.right!=None) :
+            self.inOrderOps(node.right)
     def inOrder(self):
-        pass
-    
+        self.inOrderOps(self.root)
+        
+
 tree = BinarySearchTree()
 tree.insert(50, "Hello")
 tree.insert(25, "Nice to Meet You")
@@ -113,4 +119,5 @@ print("first", tree.first().key)
 print("last", tree.last().key)
 tree.remove(25)
 print(tree.size)
+tree.inOrder()
 
