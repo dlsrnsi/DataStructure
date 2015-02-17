@@ -8,4 +8,6 @@ http://youtu.be/QMV45tHCYNI?list=PL4BBB74C7D2A1049C
 
 Thanks to Prof. Jonathan Shewchuk for lecture
 
+너무 간단한 자료구조는 구현하지 않았습니다(Insertion, Selection sort 등등)
+
 구현되어 있지 않은 자료구조는 Algorithm repository (https://github.com/dlsrnsi/Algorithm)를 찾아보기 바랍니다.
