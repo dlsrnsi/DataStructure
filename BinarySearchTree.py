@@ -118,7 +118,6 @@ class BinarySearchTree :
     def insert(self,key, value):
         entry = BSTNode(key,value)
         if self.root == None :
-            print("root : ", entry.key, entry.value)
             self.root = entry
         return self.insertOps(entry,self.root)
 
@@ -169,11 +168,11 @@ class BinarySearchTree :
                 self.inOrderOps(node.left)
             print(node.key, " : ", node.value, end="")
             if node.isLeft() :
-                print("is Left Child")
+                print(" is Left Child of ", node.parent.key)
             elif node==self.root :
-                print("is Root")
+                print(" is Root")
             else :
-                print("is Right Child")
+                print(" is Right Child ", node.parent.key)
             if(node.right!=None) :
                 self.inOrderOps(node.right)
             self.size +=1
